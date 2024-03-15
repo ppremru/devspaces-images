@@ -1,0 +1,4 @@
+- url: https://download.devel.redhat.com/rcm-guest/staging/devspaces/build-requirements/common/ideaIU/2023.2.5/ideaIU-2023.2.5.tar.gz
+  sha256: "61afc474f39ebe51424438c981a201ab1eed5ae55f3e82ff7561b6a8c9bd8b87"
+  source-url: https://download-cdn.jetbrains.com/idea/ideaIU-2023.2.5.tar.gz
+  source-sha256: "9c5d369ab6ad9b1af75bc89489d3bd47a9d2bff69449cbc4d6f288d7d96d9940"
