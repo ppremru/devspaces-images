@@ -302,6 +302,36 @@
         "disabled": false
       }
     },
+    "idea-server": {
+      "3.11": {
+        "upstream_branch": [
+          "main",
+          "main"
+        ],
+        "disabled": true
+      },
+      "3.12": {
+        "upstream_branch": [
+          "main",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.13": {
+        "upstream_branch": [
+          "main",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.x": {
+        "upstream_branch": [
+          "main",
+          "main"
+        ],
+        "disabled": false
+      }
+    },
     "traefik": {
       "3.11": {
         "upstream_branch": [

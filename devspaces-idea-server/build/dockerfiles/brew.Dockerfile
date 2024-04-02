@@ -11,7 +11,9 @@
 # The Dockerfile works only in Brew, as it is customized for Cachito fetching
 # project sources and npm dependencies, and performing an offline build with them
 
-FROM registry.access.redhat.com/ubi8/nodejs-18:1-60
+# https://registry.access.redhat.com/ubi8/nodejs-18
+FROM registry.access.redhat.com/ubi8/nodejs-18:1-94
+USER 0
 
 # WORKDIR /idea-dist/
 WORKDIR $REMOTE_SOURCES_DIR/devspaces-images-idea/app/devspaces-idea-server/
@@ -19,20 +21,19 @@ WORKDIR $REMOTE_SOURCES_DIR/devspaces-images-idea/app/devspaces-idea-server/
 # cachito:yarn step 1: copy cachito sources where we can use them; source env vars; set working dir
 COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
 
+# hadolint ignore=SC2086
 RUN source $REMOTE_SOURCES_DIR/devspaces-images-idea/cachito.env
 
-# RUN curl -sL https://download-cdn.jetbrains.com/idea/ideaIU-2023.2.5.tar.gz | tar xzf - --strip-components=1
-COPY artifacts/ideaIU-*.tar.gz idea-dist/
+COPY artifacts/ideaIU-*.tar.gz /idea-dist/
 
-USER 0
-
-COPY --chmod=755 build/dockerfiles/*.sh /
-COPY status-app /idea-dist/status-app/
+RUN cp -r build/dockerfiles/*.sh /
+RUN cp -r status-app /idea-dist/status-app/
 
 # Create a directory for mounting a volume.
 RUN mkdir /idea-server
 
 # Adjust permissions on some items so they're writable by group root.
+# hadolint ignore=SC2086
 RUN for f in "${HOME}" "/etc/passwd" "/etc/group" "/idea-dist/status-app" "/idea-server"; do\
         chgrp -R 0 ${f} && \
         chmod -R g+rwX ${f}; \
@@ -43,7 +44,7 @@ WORKDIR /idea-dist/status-app/
 RUN npm install
 
 # Switch to unprivileged user.
-USER 10001
+USER 1001
 
 ENTRYPOINT /entrypoint.sh
 
