@@ -16,11 +16,11 @@ compose:
 image_build_method: imagebuilder
 
 remote_sources:
-- name: devspaces-idea-server
+- name: devspaces-idea-remote-dev-server
   remote_source:
     repo: https://github.com/redhat-developer/devspaces-images.git
     ref: b8d76a3091d9fbf553184bd0a3d8b797a76e38dd
     pkg_managers: [npm]
     packages:
       npm:
-        - path: devspaces-idea-server/status-app/
+        - path: devspaces-idea-remote-dev-server/status-app/

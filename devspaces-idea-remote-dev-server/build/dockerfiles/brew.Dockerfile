@@ -15,7 +15,7 @@
 FROM registry.access.redhat.com/ubi8/nodejs-18:1-94
 USER 0
 
-WORKDIR $REMOTE_SOURCES_DIR/devspaces-images-idea/app/devspaces-idea-server/
+WORKDIR $REMOTE_SOURCES_DIR/devspaces-images-idea/app/devspaces-idea-remote-dev-server/
 
 # cachito:yarn step 1: copy cachito sources where we can use them; source env vars; set working dir
 COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
