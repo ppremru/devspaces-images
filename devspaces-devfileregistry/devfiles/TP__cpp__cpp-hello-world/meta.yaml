@@ -1,7 +1,7 @@
 ---
-displayName: C/C++
-description: C and C++ Developer Tools stack with GCC, cmake and make 
-tags: ["Launch-Team", "C", "C++", "ms-tools", "GCC", "g++", "make", "cmake", "UBI8"]
+displayName: Launch Team Experiment
+description: C and C++ Developer Tools stack with GCC, cmake and make and ms-tools
+tags: ["Tech-Preview", "C", "C++", "ms-tools", "GCC", "g++", "make", "cmake", "UBI8"]
 icon: /images/type-cpp.svg
 links:
   v2: https://github.com/ppremru/cpp-hello-world-cpptools/tree/experiment
